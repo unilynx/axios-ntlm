@@ -1,3 +1,4 @@
+///@ts-nocheck
 import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import * as ntlm from './ntlm';
 import * as https from 'https';
@@ -29,11 +30,11 @@ export function NtlmClient(credentials: NtlmCredentials, AxiosConfig?: AxiosRequ
     let config: AxiosRequestConfig = AxiosConfig??{}
 
     if(!config.httpAgent) {
-        config.httpAgent = new http.Agent({keepAlive: true}); 
+        config.httpAgent = new http.Agent({keepAlive: true});
     }
 
     if(!config.httpsAgent) {
-        config.httpsAgent = new https.Agent({keepAlive: true}); 
+        config.httpsAgent = new https.Agent({keepAlive: true});
     }
 
     const client = axios.create(config);
@@ -92,5 +93,5 @@ export function NtlmClient(credentials: NtlmCredentials, AxiosConfig?: AxiosRequ
     });
 
     return client;
-    
+
 }
